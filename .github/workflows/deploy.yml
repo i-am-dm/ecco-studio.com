@@ -12,6 +12,8 @@ env:
   PROJECT_ID: packpilot-461918
   SERVICE_NAME: ecco-studio-web
   REGION: us-central1
+  WIF_PROVIDER: projects/896693139975/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+  WIF_SERVICE_ACCOUNT: github-actions-ecco-studio@packpilot-461918.iam.gserviceaccount.com
 
 jobs:
   deploy:
@@ -29,8 +31,8 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
-          service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+          workload_identity_provider: ${{ env.WIF_PROVIDER }}
+          service_account: ${{ env.WIF_SERVICE_ACCOUNT }}
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2

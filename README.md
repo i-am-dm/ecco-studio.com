@@ -6,19 +6,9 @@ Professional venture incubator website for ecco-studio.com
 
 This project uses GitHub Actions to automatically deploy to Google Cloud Run on push to `main`.
 
-### Required GitHub Secrets
+### No Secrets Required
 
-Add these secrets to your GitHub repository (Settings → Secrets and variables → Actions):
-
-1. **WIF_PROVIDER**
-   ```
-   projects/896693139975/locations/global/workloadIdentityPools/github-pool/providers/github-provider
-   ```
-
-2. **WIF_SERVICE_ACCOUNT**
-   ```
-   github-actions-ecco-studio@packpilot-461918.iam.gserviceaccount.com
-   ```
+The deployment uses **Workload Identity Federation**, so no service account keys or sensitive secrets are needed. All configuration is in the workflow file.
 
 ### Local Development
 

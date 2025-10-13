@@ -10,6 +10,13 @@ This project uses GitHub Actions to automatically deploy to Google Cloud Run on 
 
 The deployment uses **Workload Identity Federation**, so no service account keys or sensitive secrets are needed. All configuration is in the workflow file.
 
+The service account has the following permissions:
+- Cloud Run Admin
+- Storage Admin (for Cloud Build artifacts)
+- Artifact Registry Writer (for container images)
+- Cloud Build Builder
+- Service Account User
+
 ### Local Development
 
 ```bash

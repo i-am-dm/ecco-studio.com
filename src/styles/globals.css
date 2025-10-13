@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  --background: #0a1228;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --primary: #f8fafc;
+  --primary-foreground: #0a1228;
+  --secondary: #334155;
+  --secondary-foreground: #f8fafc;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #475569;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(148, 163, 184, 0.2);
+  --input: transparent;
+  --input-background: #334155;
+  --switch-background: #475569;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #00E5FF;
+  --chart-1: #00E5FF;
+  --chart-2: #06b6d4;
+  --chart-3: #3b82f6;
+  --chart-4: #8b5cf6;
+  --chart-5: #f59e0b;
+  --radius: 0.625rem;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #f8fafc;
+  --sidebar-primary-foreground: #0a1228;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: rgba(148, 163, 184, 0.2);
+  --sidebar-ring: #00E5FF;
+  
+  /* Custom Ecco brand colors - optimized for dark theme */
+  --electric-aqua: #00E5FF;
+  --electric-aqua-dark: #00B8D4;
+  --rich-blue: #0a1228;
+  --slate-blue: #1e293b;
+  --light-slate: #334155;
+}
+
+.dark {
+  --background: #f8fafc;
+  --foreground: #0a1228;
+  --card: #ffffff;
+  --card-foreground: #0a1228;
+  --popover: #ffffff;
+  --popover-foreground: #0a1228;
+  --primary: #0a1228;
+  --primary-foreground: #f8fafc;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0a1228;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0a1228;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: #f1f5f9;
+  --ring: #00E5FF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-electric-aqua: var(--electric-aqua);
+  --color-electric-aqua-dark: var(--electric-aqua-dark);
+  --color-rich-blue: var(--rich-blue);
+  --color-slate-blue: var(--slate-blue);
+  --color-light-slate: var(--light-slate);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0a1228 0%, #1e293b 100%);
+    min-height: 100vh;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #f8fafc;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: #f8fafc;
+    }
+
+    h3 {
+      font-size: 1.875rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: #f8fafc;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #f8fafc;
+    }
+
+    p {
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      color: #f8fafc;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 229, 255, 0);
+  }
+}
+
+@keyframes firefly-float-1 {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateX(30px) translateY(-20px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-20px) translateY(-40px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateX(40px) translateY(-10px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes firefly-float-2 {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translateX(-40px) translateY(-30px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(30px) translateY(-50px);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateX(-30px) translateY(-20px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes firefly-float-3 {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateX(50px) translateY(-40px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateX(-40px) translateY(-20px);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateX(20px) translateY(-60px);
+    opacity: 0.7;
+  }
+}
+
+@keyframes firefly-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 229, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.8), 0 0 30px rgba(0, 229, 255, 0.4);
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  .animate-firefly-1 {
+    animation: firefly-float-1 8s ease-in-out infinite, firefly-glow 3s ease-in-out infinite;
+  }
+
+  .animate-firefly-2 {
+    animation: firefly-float-2 10s ease-in-out infinite, firefly-glow 4s ease-in-out infinite;
+  }
+
+  .animate-firefly-3 {
+    animation: firefly-float-3 12s ease-in-out infinite, firefly-glow 5s ease-in-out infinite;
+  }
+
+  .bg-gradient-electric {
+    background: linear-gradient(135deg, #00E5FF 0%, #00B8D4 100%);
+  }
+
+  .gradient-blur {
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(0, 229, 255, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+  }
+
+  .text-gradient-electric {
+    background: linear-gradient(135deg, #00E5FF 0%, #00B8D4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .border-electric-aqua {
+    border-color: #00E5FF;
+  }
+
+  .text-electric-aqua {
+    color: #00E5FF;
+  }
+
+  .bg-electric-aqua {
+    background-color: #00E5FF;
+  }
+
+  .bg-rich-blue {
+    background-color: #0a1228;
+  }
+
+  .bg-slate-blue {
+    background-color: #1e293b;
+  }
+
+  .bg-light-slate {
+    background-color: #334155;
+  }
+
+  /* Dark theme card variations */
+  .card-dark {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .card-dark-solid {
+    background: #1e293b;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+  }
+}

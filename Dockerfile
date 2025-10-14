@@ -1,23 +1,25 @@
-# Use official Node.js runtime
-FROM node:18-alpine
-
-# Set working directory
+# Build stage: install all dependencies and compile the Vite app
+FROM node:20-slim AS builder
 WORKDIR /app
 
-# Copy package files
 COPY package*.json ./
+RUN npm ci
 
-# Install dependencies
-RUN npm ci --only=production
-
-# Copy application files
 COPY . .
+RUN npm run build
 
-# Expose port
-EXPOSE 8080
+# Runtime stage: install only production dependencies and copy build output
+FROM node:20-slim AS runner
+WORKDIR /app
 
-# Set environment to production
 ENV NODE_ENV=production
 
-# Start the server
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+COPY --from=builder /app/build ./build
+COPY server.js ./server.js
+
+EXPOSE 8080
+
 CMD ["node", "server.js"]

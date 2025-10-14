@@ -1,6 +1,12 @@
-const express = require('express');
-const compression = require('compression');
-const path = require('path');
+import compression from 'compression';
+import express from 'express';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const BUILD_DIR = path.join(__dirname, 'build');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -17,15 +23,20 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve static files
-app.use(express.static('.', {
+// Surface clearer logs when the build output is missing.
+if (!fs.existsSync(path.join(BUILD_DIR, 'index.html'))) {
+  console.warn('Warning: build/index.html not found. Did you run "npm run build"?');
+}
+
+// Serve pre-built static assets
+app.use(express.static(BUILD_DIR, {
   maxAge: '1d',
   etag: true
 }));
 
-// Handle all routes - serve index.html for SPA behavior
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+// Serve index.html for SPA routes
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(BUILD_DIR, 'index.html'));
 });
 
 app.listen(PORT, () => {

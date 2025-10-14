@@ -6,22 +6,22 @@ export function Testimonials() {
 
   const testimonials = [
     {
-      quote: "Ecco turned our AI idea into a $5M company in 8 months. Their agentic frameworks saved us years of development.",
-      name: "Sarah Chen",
-      title: "Founder, VoxFlow",
-      avatar: "SC"
+      quote: "Ecco's packing optimization AI revolutionized our logistics operations. We're now 30% more efficient and saving thousands monthly on shipping.",
+      name: "Alex Thompson",
+      title: "CEO, Pack Pilot",
+      avatar: "AT"
     },
     {
-      quote: "The speed and expertise Ecco brings is unmatched. We went from concept to enterprise clients in 12 weeks.",
-      name: "Marcus Rodriguez",
-      title: "CEO, DataCortex", 
-      avatar: "MR"
+      quote: "Ecco built our omnichannel platform in record time. Their AI-first approach unified all our customer touchpoints seamlessly.",
+      name: "Jessica Liu",
+      title: "Founder, Telagento",
+      avatar: "JL"
     },
     {
-      quote: "Working with Ecco feels like having a crystal ball for AI. They see the future and build it before others even understand it.",
-      name: "Dr. Emily Watson",
-      title: "Founder, MindForge",
-      avatar: "EW"
+      quote: "Ecco's genAI expertise turned our chatbot vision into reality. The platform learns and adapts faster than we ever imagined.",
+      name: "David Park",
+      title: "CTO, Ecco Chat",
+      avatar: "DP"
     }
   ];
 

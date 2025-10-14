@@ -7,33 +7,44 @@ export function FeaturedVentures() {
   const ventures = [
     {
       id: 1,
-      name: "VoxFlow",
-      logo: "VF",
+      name: "Pack Pilot",
+      logo: "PP",
       gradient: "from-purple-600 to-pink-600",
-      description: "AI-powered voice automation for customer service",
-      caseStudy: "VoxFlow revolutionized customer support with AI agents that understand context and emotion. Within 6 months, they processed 100K+ conversations with 94% customer satisfaction.",
-      metric: "-70% support costs",
-      industry: "Customer Service"
+      description: "Packing optimization software for logistics efficiency",
+      caseStudy: "Pack Pilot's AI-driven packing algorithms optimize container utilization and reduce shipping costs. Logistics companies using Pack Pilot report 25% reduction in packaging materials and 30% faster loading times.",
+      metric: "25% cost reduction",
+      industry: "Logistics & Supply Chain",
+      link: "https://packpilot.ai"
     },
     {
       id: 2,
-      name: "DataCortex",
-      logo: "DC",
+      name: "Telagento",
+      logo: "TA",
       gradient: "from-blue-600 to-cyan-600",
-      description: "Autonomous data pipeline orchestration",
-      caseStudy: "DataCortex built self-healing data infrastructure that automatically detects and fixes pipeline issues. Their platform now manages 50TB+ daily across 200+ enterprise clients.",
-      metric: "99.9% uptime",
-      industry: "Data Infrastructure"
+      description: "Omnichannel service agent platform",
+      caseStudy: "Telagento seamlessly connects customer service across voice, chat, email, and social media. Early beta users report 40% faster response times and unified customer history across all channels.",
+      metric: "Coming Soon",
+      industry: "Customer Service"
     },
     {
       id: 3,
-      name: "MindForge",
-      logo: "MF",
+      name: "Ecco Chat",
+      logo: "EC",
       gradient: "from-green-600 to-emerald-600",
-      description: "AI research assistant for scientific discovery",
-      caseStudy: "MindForge accelerates research with AI that reads papers, generates hypotheses, and designs experiments. Used by 500+ researchers across top universities and biotech companies.",
-      metric: "3x faster discovery",
-      industry: "Research & Development"
+      description: "GenAI chatbot platform for intelligent conversations",
+      caseStudy: "Ecco Chat's advanced language models provide context-aware responses and learn from every interaction. Beta testers achieved 85% customer satisfaction with automated support handling 70% of inquiries.",
+      metric: "Coming Soon",
+      industry: "AI & Chatbots"
+    },
+    {
+      id: 4,
+      name: "Elevated Media",
+      logo: "EM",
+      gradient: "from-orange-600 to-red-600",
+      description: "Next-gen media review and personalization platform",
+      caseStudy: "Elevated Media uses AI to analyze user preferences and deliver personalized content recommendations. Early adopters see 3x higher engagement rates and 50% longer session times.",
+      metric: "Coming Soon",
+      industry: "Media & Entertainment"
     }
   ];
 
@@ -49,11 +60,11 @@ export function FeaturedVentures() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {ventures.map((venture) => (
-            <div 
+            <div
               key={venture.id}
-              onClick={() => setSelectedVenture(venture)}
+              onClick={() => venture.link ? window.open(venture.link, '_blank') : setSelectedVenture(venture)}
               className="group cursor-pointer card-dark p-8 rounded-2xl hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1 transition-all duration-300"
             >
               <div className={`w-16 h-16 bg-gradient-to-br ${venture.gradient} rounded-xl flex items-center justify-center text-white font-bold text-xl mb-6`}>

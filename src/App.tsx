@@ -4,7 +4,7 @@ import { WhyAiNative } from './components/WhyAiNative';
 import { AgenticSolutions } from './components/AgenticSolutions';
 import { LaunchPipeline } from './components/LaunchPipeline';
 import { FeaturedVentures } from './components/FeaturedVentures';
-import { Testimonials } from './components/Testimonials';
+// import { Testimonials } from './components/Testimonials';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
 
@@ -17,7 +17,7 @@ export default function App() {
       <AgenticSolutions />
       <LaunchPipeline />
       <FeaturedVentures />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <ContactForm />
       <Footer />
     </div>

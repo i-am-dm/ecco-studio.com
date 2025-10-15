@@ -4,7 +4,7 @@ export function Team() {
   const teamMembers = [
     {
       id: 1,
-      name: "David Meacham",
+      name: "Daniel Meacham",
       title: "Co-Founder & CTO",
       avatar: "DM",
       gradient: "from-blue-600 to-cyan-600",

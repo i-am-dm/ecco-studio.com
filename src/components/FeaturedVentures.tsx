@@ -34,7 +34,8 @@ export function FeaturedVentures() {
       description: "GenAI chatbot platform for intelligent conversations",
       caseStudy: "Ecco Chat's advanced language models provide context-aware responses and learn from every interaction. Beta testers achieved 85% customer satisfaction with automated support handling 70% of inquiries.",
       metric: "Coming Soon",
-      industry: "AI & Chatbots"
+      industry: "AI & Chatbots",
+      link: "https://ecco.chat"
     },
     {
       id: 4,

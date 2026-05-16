@@ -1,25 +1,25 @@
-import { ExternalLink } from 'lucide-react';
+import { Brain, Building2, Layers } from 'lucide-react';
 
 export function Team() {
-  const teamMembers = [
+  const highlights = [
     {
-      id: 1,
-      name: "Daniel Meacham",
-      title: "Co-Founder & CTO",
-      avatar: "DM",
-      gradient: "from-blue-600 to-cyan-600",
-      linkedin: "https://www.linkedin.com/in/dmmeacham/",
-      bio: "Full-stack engineer and AI specialist with deep expertise in machine learning infrastructure. Built scalable systems for Fortune 500 companies and AI startups."
+      icon: <Brain className="w-8 h-8 text-cyan-400" />,
+      title: "Deep AI expertise",
+      description:
+        "Decades of hands-on experience building machine learning systems, agentic workflows, and production AI infrastructure.",
     },
     {
-      id: 2,
-      name: "Kyle Caffey",
-      title: "Co-Founder & CEO",
-      avatar: "KC",
-      gradient: "from-purple-600 to-pink-600",
-      linkedin: "https://www.linkedin.com/in/kyle-caffey/",
-      bio: "AI entrepreneur and venture builder with extensive experience in scaling tech startups. Previously led product teams at major tech companies and founded multiple successful ventures."
-    }
+      icon: <Building2 className="w-8 h-8 text-cyan-400" />,
+      title: "Enterprise delivery",
+      description:
+        "Proven track record shipping reliable solutions for Fortune 500 companies across complex, regulated environments.",
+    },
+    {
+      icon: <Layers className="w-8 h-8 text-cyan-400" />,
+      title: "End-to-end builders",
+      description:
+        "Full-stack technologists who design, ship, and scale ventures—from architecture and product through go-to-market.",
+    },
   ];
 
   return (
@@ -29,44 +29,27 @@ export function Team() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Our Team
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Meet the visionaries driving Ecco's mission to build the next generation of AI-powered ventures.
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Ecco is led by seasoned technologists with decades of experience in AI
+            and a long history of delivering solutions for Fortune 500 companies.
+            We combine enterprise-grade engineering with the speed and focus of a
+            venture studio.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {teamMembers.map((member) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {highlights.map((item, index) => (
             <div
-              key={member.id}
-              className="group cursor-pointer card-dark p-8 rounded-2xl hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1 transition-all duration-300"
+              key={index}
+              className="card-dark p-8 rounded-2xl text-center hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="flex flex-col items-center text-center">
-                <div className={`w-20 h-20 bg-gradient-to-br ${member.gradient} rounded-full flex items-center justify-center text-white font-bold text-2xl mb-6`}>
-                  {member.avatar}
-                </div>
-
-                <h3 className="text-2xl font-semibold text-white mb-2">
-                  {member.name}
-                </h3>
-
-                <p className="text-cyan-400 font-medium mb-4">
-                  {member.title}
-                </p>
-
-                <p className="text-slate-300 mb-6 leading-relaxed">
-                  {member.bio}
-                </p>
-
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-slate-600/50 hover:bg-slate-600/70 backdrop-blur-sm rounded-full text-slate-300 hover:text-white transition-all duration-300 group"
-                >
-                  <span>LinkedIn</span>
-                  <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+              <div className="mb-6 p-3 bg-cyan-500/10 border border-cyan-500/20 rounded-xl w-fit mx-auto">
+                {item.icon}
               </div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                {item.title}
+              </h3>
+              <p className="text-slate-300 leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>

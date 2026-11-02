@@ -3,3 +3,8 @@ node_modules
 .gitignore
 README.md
 .DS_Store
+# Generated authentication files must not enter uploaded source archives.
+gha-creds-*.json
+**/gha-creds-*.json
+application_default_credentials.json
+**/application_default_credentials.json

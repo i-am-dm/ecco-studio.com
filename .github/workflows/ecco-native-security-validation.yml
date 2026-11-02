@@ -1,0 +1,41 @@
+name: Ecco Studio native security validation
+
+on:
+  push:
+    branches: [security/ecco-native-validation-20261102]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ecco-native-security-validation-20261102
+  cancel-in-progress: false
+
+jobs:
+  native-image:
+    if: >-
+      github.repository == 'i-am-dm/ecco-studio.com' &&
+      github.event.repository.private == false &&
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/security/ecco-native-validation-20261102' &&
+      github.event.created == true &&
+      github.actor == 'i-am-dm' &&
+      github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      EXPECTED_SHA: ${{ github.sha }}
+    steps:
+      - name: Checkout the exact approved branch commit
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6, verified 2026-11-02
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+          show-progress: false
+      - name: Build and verify native Linux image
+        timeout-minutes: 18
+        run: bash .security-validation/ecco/run-native-validation.sh
+      - name: Record bounded receipts in job logs
+        if: always()
+        run: python3 .security-validation/ecco/emit-receipts.py
